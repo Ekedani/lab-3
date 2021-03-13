@@ -3,13 +3,15 @@
 class Queue{
 private:
     int *data;
+    int *priorities;
     int size;
 public:
     Queue(){
         size = 0;
         data = new int[size];
+        priorities = new int[size];
     }
-    void pushBack(int num);
+    void pushBack(int num, int priority);
     void popFront();
     int getFront(){
         return data[0];
