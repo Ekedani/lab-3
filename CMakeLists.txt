@@ -1,6 +1,14 @@
 cmake_minimum_required(VERSION 3.16)
 project(lab_3)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 14)
 
-add_executable(lab_3 main.cpp library.cpp library.h)
+include_directories(.)
+
+add_executable(lab_3
+        CMakeLists.txt
+        library.cpp
+        library.h
+        main.cpp
+        Queue.cpp
+        Queue.h)

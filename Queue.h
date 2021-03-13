@@ -1,14 +1,30 @@
-//
-// Created by User on 13.03.2021.
-//
+#pragma once
 
-#ifndef LAB_3_QUEUE_H
-#define LAB_3_QUEUE_H
-
-
-class Queue {
+class Queue{
+private:
+    int *data;
+    int size;
+public:
+    Queue(){
+        size = 0;
+        data = new int[size];
+    }
+    void pushBack(int num);
+    void popFront();
+    int getFront(){
+        return data[0];
+    }
+    int getSize(){
+        return size;
+    }
+    bool isEmpty(){
+        if(size == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 };
 
-
-#endif //LAB_3_QUEUE_H
