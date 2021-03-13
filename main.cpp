@@ -3,5 +3,8 @@
 using namespace std;
 
 int main() {
-    return 0;
+    Queue test;
+    test.pushBack(12);
+    int i = test.getFront();
+    cout << "I IS: " << i << endl;
 }
