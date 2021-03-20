@@ -9,5 +9,8 @@ int main() {
     test.pushBack(12, 11);
     int i = test.getFront();
     cout << "I IS: " << i << endl;
+    test.popFront();
+    i = test.getFront();
     cout << "I IS: " << i << endl;
+
 }
