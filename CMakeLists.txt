@@ -10,5 +10,4 @@ add_executable(lab_3
         library.cpp
         library.h
         main.cpp
-        Queue.cpp
         Queue.h)

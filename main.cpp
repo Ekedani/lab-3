@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-    Queue test;
+    Queue<int> test;
     test.pushBack(13, 11);
     test.pushBack(12, 11);
     int i = test.getFront();
