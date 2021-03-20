@@ -5,12 +5,9 @@ using namespace std;
 
 int main() {
     Queue test;
-    test.pushBack(12);
-    test.pushBack(13);
+    test.pushBack(13, 11);
+    test.pushBack(12, 11);
     int i = test.getFront();
     cout << "I IS: " << i << endl;
-    test.pushBack(14);
-    test.popFront();
-    i = test.getFront();
     cout << "I IS: " << i << endl;
 }
