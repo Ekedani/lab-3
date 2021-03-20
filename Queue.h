@@ -14,12 +14,18 @@ public:
         data = new T[size];
         priorities = new int[size];
     }
+
+    //Возвращает значение из вершины очереди
     T getFront(){
         return data[0];
     }
+
+    //Возвращает размер очереди
     int getSize(){
         return size;
     }
+
+    //Проверяет очередь на пустоту
     bool isEmpty(){
         if(size == 0){
             return true;
@@ -92,7 +98,7 @@ public:
             size += 1;
         }
 
-            //Без увеличения массивов
+        //Без увеличения массивов
         else{
             int position;
             if(size == 0){
