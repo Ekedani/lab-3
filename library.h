@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 struct Cell{
     int i_coord;
     int j_coord;
@@ -14,6 +16,9 @@ struct Cell{
     }
 };
 
-using namespace std;
+char** getMatrix(string way_to_file);
+int countNumberOfLines(string way_to_file);
+int countNumberOfColumns(string way_to_file);
+
 
 

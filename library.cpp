@@ -10,6 +10,7 @@ char** getMatrix(string way_to_file){
         matrix[i] = new char[columns];
     }
     //TODO: написать запись в матрицу каждого второго символа кроме /n
+    return matrix;
 }
 
 //TODO: проверить не берется ли лишняя строка
