@@ -14,12 +14,18 @@ public:
         data = new T[size];
         priorities = new int[size];
     }
+
+    //Возвращает значение из вершины очереди
     T getFront(){
         return data[0];
     }
+
+    //Возвращает размер очереди
     int getSize(){
         return size;
     }
+
+    //Проверяет очередь на пустоту
     bool isEmpty(){
         if(size == 0){
             return true;
@@ -41,17 +47,17 @@ public:
     //Добавляет элемент в конец очереди
     void pushBack(T obj, int priority) {
 
-        //Если размер больше или равен 80%
-        if(size + 1 >= 0.8 * capacity){
+        //Если размер равен вместимости
+        if(size == capacity){
             T *new_data;
             int *new_priorities;
             if(capacity == 0){
-                new_data = new int[size +1 ];
+                new_data = new T[size +1 ];
                 new_priorities = new int[size + 1];
                 capacity = 1;
             }
             else{
-                new_data = new int[capacity * 2];
+                new_data = new T[capacity * 2];
                 new_priorities = new int[capacity * 2];
                 capacity *= 2;
             }
@@ -62,7 +68,7 @@ public:
             else{
                 position = 0;
                 while (position < size){
-                    if (priorities[position] < priority){
+                    if (priorities[position] > priority){
                         break;
                     }
                     position += 1;
@@ -92,7 +98,7 @@ public:
             size += 1;
         }
 
-            //Без увеличения массивов
+        //Без увеличения массивов
         else{
             int position;
             if(size == 0){
@@ -101,7 +107,7 @@ public:
             else{
                 position = 0;
                 while (position < size){
-                    if (priorities[position] < priority){
+                    if (priorities[position] > priority){
                         break;
                     }
                     position += 1;

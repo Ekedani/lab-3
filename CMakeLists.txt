@@ -10,4 +10,4 @@ add_executable(lab_3
         library.cpp
         library.h
         main.cpp
-        Queue.h)
+        Queue.h dijkstra.cpp dijkstra.h)
