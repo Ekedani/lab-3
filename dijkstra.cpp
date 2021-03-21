@@ -19,7 +19,7 @@ void findWay(Cell start, Cell end, char **matrix, vector<vector<int>> visited){
     Cell current_cell = start;
 
     //Поиск пути пока не придем в конечную точку
-    while(start != current_cell){
+    while(end != current_cell){
 
         //Добавление в очередь соседних вершин
         if(tryToAdd(current_cell.row - 1, current_cell.column, matrix, visited)){
@@ -42,7 +42,13 @@ void findWay(Cell start, Cell end, char **matrix, vector<vector<int>> visited){
         current_cell = list_of_cells.getFront();
         list_of_cells.popFront();
     }
-    //TODO: написать рекурсивную функцию, что принимает в себя current_cell и через parent ищет путь в начальную вершину
+    do{
+        matrix[current_cell.row][current_cell.column] = '3';
+        if(current_cell != start){
+            current_cell = *(current_cell.parent);
+        }
+    }
+    while(current_cell != start);
 }
 
 //Проверяет посещалась ли вершина ранее и проходима ли она
