@@ -9,6 +9,7 @@ public:
     int column;
     int distance;
     Cell *parent;
+    Cell(){};
     Cell(int row_value, int column_value, int distance_value){
         row = row_value;
         column = column_value;

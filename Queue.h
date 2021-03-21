@@ -52,12 +52,12 @@ public:
             T *new_data;
             int *new_priorities;
             if(capacity == 0){
-                new_data = new int[size +1 ];
+                new_data = new T[size +1 ];
                 new_priorities = new int[size + 1];
                 capacity = 1;
             }
             else{
-                new_data = new int[capacity * 2];
+                new_data = new T[capacity * 2];
                 new_priorities = new int[capacity * 2];
                 capacity *= 2;
             }
