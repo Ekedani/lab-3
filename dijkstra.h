@@ -22,5 +22,17 @@ public:
     }
 };
 
+bool operator==(const Cell &c2, const Cell &c1){
+    bool result = false;
+    if(c1.row == c2.row && c1.column == c2.column){
+        result = true;
+    }
+    return result;
+}
+
+bool operator!=(const Cell &c2, const Cell &c1){
+    return !(c1 == c2);
+}
+
 void findWay(Cell start, Cell end, char **matrix, vector<vector<int>> visited);
 bool tryToAdd(int i, int j, char** matrix, vector<vector<int>> visited);

@@ -3,8 +3,8 @@
 void findWay(Cell start, Cell end, char **matrix, vector<vector<int>> visited){
     Queue<Cell> list_of_cells;
     Cell current_cell = start;
-    //TODO: перегрузить операцию сровнения для класса Cell по координатам
     //TODO: обновить приоритетность очереди от меньшего к большему
+    //TODO: перегрузить оператор присваивания/написать конструктор копирования
     while(start != current_cell){
 
         //Добавление в очередь соседних вершин
