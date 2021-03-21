@@ -87,3 +87,11 @@ bool tryToAdd(int i, int j, char** matrix, vector<vector<int>> visited){
     }
     return result;
 }
+
+//A*
+int manhattanMetric(Cell c1, Cell c2){
+
+    //В оценке эвристики оцениваем учитываем так же финальную клетку
+    int result = (abs(c1.row - c2.row) + abs(c1.distance - c2.distance) + 1) * 10;
+    return result;
+}
