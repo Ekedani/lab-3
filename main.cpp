@@ -24,7 +24,7 @@ int main() {
 
     //Ввод координат начала и конца пути
     Cell start(5, 1, 0);
-    Cell end(1, 12, INT_MAX);
+    Cell end(1, 6, INT_MAX);
 
     //Матрица для записи посещенных вершин. [i][j]=1 значит посещена
     vector<vector<int>> visited_cells;
@@ -35,9 +35,11 @@ int main() {
         }
         visited_cells.push_back(row);
     }
+
+    //Функция поиска пути, которая изменяет начальную матрицу
     findWay(start, end, matrix, visited_cells);
 
-    //Вывод считанной матрицы, для удобства
+    //Вывод обработанной матрицы
     for (int i = 0; i < countNumberOfLines(my_way); ++i) {
         for (int j = 0; j < countNumberOfColumns(my_way); ++j) {
             cout << matrix[i][j] << ' ';

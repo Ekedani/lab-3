@@ -20,6 +20,7 @@ void findWay(Cell start, Cell end, char **matrix, vector<vector<int>> visited){
 
     //Поиск пути пока не придем в конечную точку
     while(end != current_cell){
+        cout << "Current cell is: " << current_cell.row << " and " << current_cell.column << endl;
 
         //Добавление в очередь соседних вершин
         if(tryToAdd(current_cell.row - 1, current_cell.column, matrix, visited)){
