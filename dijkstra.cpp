@@ -25,7 +25,7 @@ void findWay(Cell start, Cell end, char **matrix, vector<vector<int>> visited){
         current_cell = list_of_cells.getFront();
         list_of_cells.popFront();
     }
-    //TODO: написать рекурсивную функцию, что принимает в себя Start и через parent ищет путь в начальную вершину
+    //TODO: написать рекурсивную функцию, что принимает в себя current_cell и через parent ищет путь в начальную вершину
 }
 
 //Проверяет посещалась ли вершина ранее и проходима ли она
