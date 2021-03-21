@@ -3,10 +3,11 @@
 char** getMatrix(string way_to_file){
     ifstream file;
     file.open(way_to_file);
-
     //Находим размерность матрицы
     int lines = countNumberOfLines(way_to_file);
+    cout << "lines:" << lines << endl;
     int columns = countNumberOfColumns(way_to_file);
+    cout << "columns:" << columns << endl;
 
     //Создание матрицы-лабиринта
     char **matrix = new char*[lines];
@@ -16,12 +17,18 @@ char** getMatrix(string way_to_file){
 
     //Заполнение матрицы, не учитывая пробелы
     for(int i = 0; i < lines; i++){
-        for(int j = 0; j < columns * 2; j++){
+        for(int j = 0; j < 2*columns; j++){
+            if(j==2*columns-1) {
+                char tmp;
+                tmp = file.get();
+                continue;
+            }
             if(j % 2 == 0){
-                matrix[lines][columns/2] = file.get();
+                matrix[i][j/2] = file.get();
             }
             else{
-                file.get();
+                char tmp;
+                tmp = file.get();
             }
         }
     }
@@ -29,7 +36,6 @@ char** getMatrix(string way_to_file){
     return matrix;
 }
 
-//TODO: проверить не берется ли лишняя строка
 int countNumberOfLines(string way_to_file){
     int result = 0;
     ifstream file;
