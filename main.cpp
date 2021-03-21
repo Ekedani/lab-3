@@ -30,4 +30,5 @@ int main() {
         visited_cells.push_back(row);
     }
 
+    Graph paths;
 }
