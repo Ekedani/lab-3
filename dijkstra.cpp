@@ -16,7 +16,7 @@ void findWay(Cell start, Cell end, char **matrix, vector<vector<int>> visited){
     Queue<Cell> list_of_cells;
     Cell current_cell = start;
     //TODO: обновить приоритетность очереди от меньшего к большему
-    //TODO: перегрузить оператор присваивания/написать конструктор копирования
+    //TODO: написать конструктор копирования (ОЧЕНЬ важно, так как присваивание и передача параметров могут работать неправильно)
     while(start != current_cell){
 
         //Добавление в очередь соседних вершин
