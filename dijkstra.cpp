@@ -1,5 +1,6 @@
 #include "dijkstra.h"
 
+//Перегрузка операторов класса Cell
 bool operator== (const Cell &c2, const Cell &c1){
     bool result = false;
     if(c1.row == c2.row && c1.column == c2.column){
@@ -12,11 +13,12 @@ bool operator!= (const Cell &c2, const Cell &c1){
     return !(c1 == c2);
 }
 
+//Поиск пути по алгоритму Дейкстры
 void findWay(Cell start, Cell end, char **matrix, vector<vector<int>> visited){
     Queue<Cell> list_of_cells;
     Cell current_cell = start;
-    //TODO: обновить приоритетность очереди от меньшего к большему
-    //TODO: написать конструктор копирования (ОЧЕНЬ важно, так как присваивание и передача параметров могут работать неправильно)
+
+    //Поиск пути пока не придем в конечную точку
     while(start != current_cell){
 
         //Добавление в очередь соседних вершин

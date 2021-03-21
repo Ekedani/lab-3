@@ -1,5 +1,6 @@
 #include "library.h"
 
+//TODO: добавить проверку на успешность открытия файла
 char** getMatrix(string way_to_file){
     ifstream file;
     file.open(way_to_file);
