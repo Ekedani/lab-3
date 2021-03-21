@@ -47,8 +47,8 @@ public:
     //Добавляет элемент в конец очереди
     void pushBack(T obj, int priority) {
 
-        //Если размер больше или равен 80%
-        if(size + 1 >= 0.8 * capacity){
+        //Если размер равен вместимости
+        if(size == capacity){
             T *new_data;
             int *new_priorities;
             if(capacity == 0){
