@@ -1,6 +1,6 @@
 #include "library.h"
 #include "Queue.h"
-
+#include "dijkstra.h"
 using namespace std;
 
 int main() {
@@ -15,4 +15,8 @@ int main() {
         }
         cout << endl;
     }
+
+    Cell start(5, 2, 0);
+    Cell end(1, 12, INT_MAX);
+
 }
