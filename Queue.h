@@ -107,7 +107,7 @@ public:
             else{
                 position = 0;
                 while (position < size){
-                    if (priorities[position] < priority){
+                    if (priorities[position] > priority){
                         break;
                     }
                     position += 1;

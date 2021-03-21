@@ -2,6 +2,7 @@
 #include <limits.h>
 #include "Queue.h"
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Cell {
@@ -10,8 +11,7 @@ public:
     int row;
     int column;
     int distance;
-    Cell *parent;
-
+    string way;
     //Конструктор по умолчанию
     Cell(){};
 
@@ -20,7 +20,7 @@ public:
         row = cell.row;
         column = cell.column;
         distance = cell.distance;
-        parent = cell.parent;
+        way = cell.way;
     }
 
     //Остальные конструкторы
@@ -28,12 +28,13 @@ public:
         row = row_value;
         column = column_value;
         distance = distance_value;
+        way = "";
     }
-    Cell(int row_value, int column_value, int distance_value, Cell *parent_cell){
+    Cell(int row_value, int column_value, int distance_value, string way_to_start){
         row = row_value;
         column = column_value;
         distance = distance_value;
-        parent = parent_cell;
+        way = way_to_start;
     }
 
     //Перегруженные операторы

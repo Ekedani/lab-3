@@ -17,39 +17,41 @@ bool operator!= (const Cell &c2, const Cell &c1){
 void findWay(Cell start, Cell end, char **matrix, vector<vector<int>> visited){
     Queue<Cell> list_of_cells;
     Cell current_cell = start;
+    vector<Cell> cells_in_memory;
+    int num_of_visited_cells = 0;
 
     //Поиск пути пока не придем в конечную точку
     while(end != current_cell){
         cout << "Current cell is: " << current_cell.row << " and " << current_cell.column << endl;
+        cout << "Distance is: " << current_cell.distance << endl;
+
+        //Сохранение в памяти для поиска обратного пути рекурсией
+        cells_in_memory.push_back(current_cell);
 
         //Добавление в очередь соседних вершин
         if(tryToAdd(current_cell.row - 1, current_cell.column, matrix, visited)){
-            list_of_cells.pushBack(Cell(current_cell.row - 1, current_cell.column, current_cell.distance + 1, &current_cell), current_cell.distance + 1);
+            list_of_cells.pushBack(Cell(current_cell.row - 1, current_cell.column, current_cell.distance + 1, current_cell.way + "UP "), current_cell.distance + 1);
         }
         if(tryToAdd(current_cell.row + 1, current_cell.column, matrix, visited)){
-            list_of_cells.pushBack(Cell(current_cell.row + 1, current_cell.column, current_cell.distance + 1, &current_cell), current_cell.distance + 1);
+            list_of_cells.pushBack(Cell(current_cell.row + 1, current_cell.column, current_cell.distance + 1, current_cell.way + "DOWN "), current_cell.distance + 1);
         }
         if(tryToAdd(current_cell.row, current_cell.column + 1, matrix, visited)){
-            list_of_cells.pushBack(Cell(current_cell.row, current_cell.column + 1, current_cell.distance + 1, &current_cell), current_cell.distance + 1);
+            list_of_cells.pushBack(Cell(current_cell.row, current_cell.column + 1, current_cell.distance + 1, current_cell.way + "RIGHT "), current_cell.distance + 1);
         }
         if(tryToAdd(current_cell.row, current_cell.column - 1, matrix, visited)){
-            list_of_cells.pushBack(Cell(current_cell.row, current_cell.column - 1, current_cell.distance + 1, &current_cell), current_cell.distance + 1);
+            list_of_cells.pushBack(Cell(current_cell.row, current_cell.column - 1, current_cell.distance + 1, current_cell.way + "LEFT "), current_cell.distance + 1);
         }
 
         //Отмечаем клетку как посещеннную
         visited[current_cell.row][current_cell.column] = 1;
+        num_of_visited_cells += 1;
 
         //Обновление текущей вершины
         current_cell = list_of_cells.getFront();
         list_of_cells.popFront();
     }
-    do{
-        matrix[current_cell.row][current_cell.column] = '3';
-        if(current_cell != start){
-            current_cell = *(current_cell.parent);
-        }
-    }
-    while(current_cell != start);
+    cout << current_cell.way << endl;
+    //TODO: изменить входную матрицу соответственно с полученным путем
 }
 
 //Проверяет посещалась ли вершина ранее и проходима ли она
