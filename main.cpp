@@ -5,8 +5,12 @@
 using namespace std;
 
 int main() {
+
+    //Ввод пути к файлу лабиринта
     string my_way;
-    cin >> my_way;
+    cout << "Input a way to the file" << endl; cin >> my_way;
+
+    //Форматирование матрицы для работы с ней
     char **matrix = getMatrix(my_way);
 
     //Вывод считанной матрицы, для удобства
@@ -17,6 +21,7 @@ int main() {
         cout << endl;
     }
 
+    //Ввод координат начала и конца пути
     Cell start(5, 2, 0);
     Cell end(1, 12, INT_MAX);
 

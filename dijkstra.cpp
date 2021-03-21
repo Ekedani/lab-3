@@ -33,7 +33,7 @@ void findWay(Cell start, Cell end, char **matrix, vector<vector<int>> visited){
             list_of_cells.pushBack(Cell(current_cell.row, current_cell.column - 1, current_cell.distance + 1, &current_cell), current_cell.distance + 1);
         }
 
-        //Отмечаем клетку как посещеннную 
+        //Отмечаем клетку как посещеннную
         visited[current_cell.row][current_cell.column] = 1;
 
         //Обновление текущей вершины
