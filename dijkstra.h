@@ -44,3 +44,5 @@ public:
 
 void findWay(Cell start, Cell end, char **matrix, vector<vector<int>> visited);
 bool tryToAdd(int i, int j, char** matrix, vector<vector<int>> visited);
+int manhattanMetric(Cell c1, Cell c2, int movement);
+void findWayAStar(Cell start, Cell end, char **matrix, vector<vector<int>> visited);
