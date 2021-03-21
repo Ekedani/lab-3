@@ -51,7 +51,32 @@ void findWay(Cell start, Cell end, char **matrix, vector<vector<int>> visited){
         list_of_cells.popFront();
     }
     cout << current_cell.way << endl;
-    //TODO: изменить входную матрицу соответственно с полученным путем
+    string way = current_cell.way; //Не хочу портить ориг
+    string temp = "";
+    int r = start.row, c = start.column;//Бегаем по матрице
+    matrix[r][c] = 'A';
+    int index = 0; //Храним позицию пробела
+    int i = 66; //Используем ASCII-коды
+    while(index!=string::npos) {
+        if (i == 91) i=97; //там в таблице аски будет разрыв
+        index = way.find(' ');
+        temp = way.substr(0, index);
+        if (temp=="UP") {
+            r-=1;
+        }
+        if (temp=="RIGHT") {
+            c+=1;
+        }
+        if (temp=="DOWN") {
+            r+=1;
+        }
+        if (temp=="LEFT") {
+            c-=1;
+        }
+        matrix[r][c]=char(i);
+        i++;
+        way = way.substr(index + 1); //ну можно было erase, но вот так
+    }
 }
 
 //Проверяет посещалась ли вершина ранее и проходима ли она
