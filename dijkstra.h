@@ -12,3 +12,9 @@ public:
         distance = distance_value;
     }
 };
+
+class Graph {
+public:
+    int V; //количество вершин
+    vector<pair<Cell, Cell>> edges;
+};
