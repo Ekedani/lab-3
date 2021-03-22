@@ -42,10 +42,8 @@ void findWay(Cell start, Cell end, char **matrix, vector<vector<int>> visited){
         current_cell = list_of_cells.getFront();
         list_of_cells.popFront();
     }
-
-
     string way = current_cell.way; //Не хочу портить ориг
-    string temp = "";
+    string temp;
     int r = start.row, c = start.column;//Бегаем по матрице
     matrix[r][c] = 'A';
     int index = 0; //Храним позицию пробела
@@ -66,10 +64,12 @@ void findWay(Cell start, Cell end, char **matrix, vector<vector<int>> visited){
         if (temp=="LEFT") {
             c-=1;
         }
+        if (temp.empty()) break;
         matrix[r][c]=char(i);
         i++;
         way = way.substr(index + 1); //ну можно было erase, но вот так
     }
+    cout << "The shortest distance is "<< current_cell.distance << endl;
 }
 
 //Проверяет посещалась ли вершина ранее и проходима ли она
@@ -141,7 +141,7 @@ void findWayAStar(Cell start, Cell end, char **matrix, vector<vector<int>> visit
         list_of_cells.popFront();
     }
     string way = current_cell.way; //Не хочу портить ориг
-    string temp = "";
+    string temp;
     int r = start.row, c = start.column;//Бегаем по матрице
     matrix[r][c] = 'A';
     int index = 0; //Храним позицию пробела
@@ -162,8 +162,10 @@ void findWayAStar(Cell start, Cell end, char **matrix, vector<vector<int>> visit
         if (temp=="LEFT") {
             c-=1;
         }
+        if (temp.empty()) break;
         matrix[r][c]=char(i);
         i++;
         way = way.substr(index + 1); //ну можно было erase, но вот так
     }
+    cout << "The shortest distance is "<< current_cell.distance << endl;
 }
