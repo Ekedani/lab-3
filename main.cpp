@@ -1,5 +1,4 @@
 #include "library.h"
-#include "Queue.h"
 #include "dijkstra.h"
 #include <vector>
 using namespace std;
@@ -13,14 +12,6 @@ int main() {
 
     //Форматирование матрицы для работы с ней
     char **matrix = getMatrix(my_way);
-
-    //Вывод считанной матрицы, для удобства
-    for (int i = 0; i < countNumberOfLines(my_way); ++i) {
-        for (int j = 0; j < countNumberOfColumns(my_way); ++j) {
-            cout << matrix[i][j];
-        }
-        cout << endl;
-    }
 
     //Ввод координат начала и конца пути
     Cell start(5, 1, 0);
