@@ -22,9 +22,6 @@ void findWay(Cell start, Cell end, char **matrix, vector<vector<int>> visited){
 
     //Поиск пути пока не придем в конечную точку
     while(end != current_cell){
-        cout << "Current cell is: " << current_cell.row << " and " << current_cell.column << endl;
-        cout << "Distance is: " << current_cell.distance << endl;
-
         //Сохранение в памяти для поиска обратного пути рекурсией
         cells_in_memory.push_back(current_cell);
 
@@ -50,7 +47,6 @@ void findWay(Cell start, Cell end, char **matrix, vector<vector<int>> visited){
         current_cell = list_of_cells.getFront();
         list_of_cells.popFront();
     }
-    cout << current_cell.way << endl;
     string way = current_cell.way; //Не хочу портить ориг
     string temp = "";
     int r = start.row, c = start.column;//Бегаем по матрице
@@ -73,10 +69,12 @@ void findWay(Cell start, Cell end, char **matrix, vector<vector<int>> visited){
         if (temp=="LEFT") {
             c-=1;
         }
+        if (temp=="") break;
         matrix[r][c]=char(i);
         i++;
         way = way.substr(index + 1); //ну можно было erase, но вот так
     }
+    cout << "The shortest distance is "<< current_cell.distance << endl;
 }
 
 //Проверяет посещалась ли вершина ранее и проходима ли она

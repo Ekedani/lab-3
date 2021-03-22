@@ -6,9 +6,7 @@ char** getMatrix(string way_to_file){
     file.open(way_to_file);
     //Находим размерность матрицы
     int lines = countNumberOfLines(way_to_file);
-    cout << "lines:" << lines << endl;
     int columns = countNumberOfColumns(way_to_file);
-    cout << "columns:" << columns << endl;
 
     //Создание матрицы-лабиринта
     char **matrix = new char*[lines];
