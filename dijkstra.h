@@ -1,5 +1,5 @@
 #include <vector>
-#include <limits.h>
+#include <climits>
 #include "Queue.h"
 #include <iostream>
 #include <string>

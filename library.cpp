@@ -18,16 +18,14 @@ char** getMatrix(string way_to_file){
     for(int i = 0; i < lines; i++){
         for(int j = 0; j < 2*columns; j++){
             if(j==2*columns-1) {
-                char tmp;
-                tmp = file.get();
+                file.get();
                 continue;
             }
             if(j % 2 == 0){
                 matrix[i][j/2] = file.get();
             }
             else{
-                char tmp;
-                tmp = file.get();
+                file.get();
             }
         }
     }
@@ -40,7 +38,7 @@ int countNumberOfLines(string way_to_file){
     ifstream file;
     file.open(way_to_file);
     while(!file.eof()){
-        string tmp = "";
+        string tmp;
         getline(file, tmp);
         result += 1;
     }
